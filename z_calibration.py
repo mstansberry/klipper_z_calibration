@@ -268,8 +268,10 @@ class CalibrationState:
             # no clearance, better to move up
             self.helper._move([None, None, pos[2] + self.helper.clearance],
                               self.helper.lift_speed)
-        # move to position
-        self.helper._move(list(site), self.helper.speed)
+        # move to position x
+        self.helper._move([site[0], pos[1]], self.helper.speed)
+        # move to position y
+        self.helper._move([site[0], site[1]], self.helper.speed)
         if self.helper.first_fast:
             # first probe just to get down faster
             self.helper._probe(self.z_endstop, self.helper.position_min,
